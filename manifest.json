@@ -1,0 +1,8 @@
+{
+	"name": "Base64",
+	"version": "1.0.0",
+	"description": "Encodes and decodes Base64 text",
+	"author": "JelNiSław",
+	"license": "MIT",
+	"repo": "https://github.com/JelNiSlaw/powercord-base64"
+}
