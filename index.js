@@ -4,15 +4,15 @@ module.exports = class Base64 extends Plugin {
 	startPlugin() {
 		powercord.api.commands.registerCommand({
 			command: 'encode64',
-			description: 'Encode Base64 text',
+			description: 'Encode text to Base64',
 			usage: '{c} <text>',
 			executor: (args) => ({ send: false, result: btoa(args.join(' ')) })
 		});
 
 		powercord.api.commands.registerCommand({
 			command: 'decode64',
-			description: 'Decodes Base64 text',
-			usage: '{c} <text>',
+			description: 'Decode Base64 to text',
+			usage: '{c} <Base64 string>',
 			executor: function (args) {
 				let result;
 
