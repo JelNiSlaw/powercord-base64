@@ -6,7 +6,10 @@ module.exports = class Base64 extends Plugin {
 			command: 'encode64',
 			description: 'Encode text to Base64',
 			usage: '{c} <text>',
-			executor: (args) => ({ send: false, result: btoa(args.join(' ')) })
+			executor: (args) => ({
+				send: false,
+				result: btoa(unescape(encodeURIComponent(args.join(' '))))
+			})
 		});
 
 		powercord.api.commands.registerCommand({
@@ -17,7 +20,7 @@ module.exports = class Base64 extends Plugin {
 				let result;
 
 				try {
-					result = atob(args.join(' '));
+					result = decodeURIComponent(escape(atob(args.join(' '))));
 				} catch {
 					result = 'Incorrect Base64 string';
 				}
